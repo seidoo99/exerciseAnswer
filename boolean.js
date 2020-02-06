@@ -90,20 +90,27 @@ function largeNumber(myArray) {
 largeNumber(numbers);
 console.log(largeNumber(numbers));
 
-var student = [1991, 1984, 1984, 1989];
+var birthYears = [1991, 1984, 1984, 1989];
 
 function mostCommon(common) {
-    var currentItems;
+    var occurence = {};
+    var commonYear = common[0];
+    //var currentYear;
     for (i = 0; i < common.length; i++) {
-        currentItems = common[i];
-        if (currentItems == common[i + 1]) {
-            currentItems = common[i + 1];
+        var currentYear = common[i];
+        if (occurence[currentYear] == null) {
+            occurence[currentYear] = 1;
+            //console.log(commonYear);
+        } else {
+            occurence[currentYear]++;
+            if (occurence[currentYear] > occurence[commonYear]) {
+                commonYear = currentYear;
+            }
         }
-
     }
-    return currentItems;
+    return commonYear;
 }
-mostCommon(student);
+console.log(mostCommon(birthYears));
 //console.log(mostCommon(student));
 //given a list of numbers [-1,5,-25,-3,99,20], write a function that returns 
 raceResults = [
